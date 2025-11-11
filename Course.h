@@ -6,26 +6,30 @@
 #include <iostream>
 
 using namespace std;
-//#write your code here
+// Course.h - declaration only. Implementations are in main.cpp per assignment.
+
+class Instructor; // forward declare (Instructor included in main implementations)
 
 class Course {
-    private:
-    // unique coursecode 
-    string courseCode;
-    string courseName;
+private:
+    std::string courseCode;
+    std::string courseName;
     int maxStudents;
-    Student* students;
+    Student* students; // dynamic array
     int currentStudents;
-    public:
-    Cousre();
+    Instructor* instructor; // pointer to instructor (store reference externally)
+public:
+    Course();
+    Course(const std::string& code, const std::string& name, int maxStudents, Instructor* instructor);
+    ~Course();
 
-    Course(string code, string name, int max);
     void addStudent(const Student& s);
+    void displayCourseInfo() const;
 
-    void displayCourseInfo();
-}
-
-
-
+    // getters
+    std::string getCourseCode() const;
+    std::string getCourseName() const;
+};
 
 #endif
+
