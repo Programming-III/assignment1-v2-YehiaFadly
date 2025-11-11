@@ -4,17 +4,23 @@
 #include "Person.h"
 #include <string>
 #include <iostream>
-using namespace std;
-//#write Instructor class here
+// Instructor.h - declaration only. Implementations are in main.cpp per assignment.
 
-class Instructor: public Person{
-    private:
-    string department;
+class Instructor : public Person {
+private:
+    std::string department;
     int experienceYears;
-    public:
-    Instructor(string n, int d, string dept, int exp) : Person(n, d);
-    void display();
-};
+public:
+    Instructor();
+    Instructor(const std::string& name, int id, const std::string& department, int experienceYears);
+    ~Instructor();
 
+    void setDepartment(const std::string& d);
+    std::string getDepartment() const;
+    void setExperienceYears(int e);
+    int getExperienceYears() const;
+
+    void display() const override;
+};
 
 #endif
